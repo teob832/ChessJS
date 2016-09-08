@@ -1,0 +1,11 @@
+Debug List
+********************************************************************
+
+
+    [ ] Turn is NOT toggled after checkMate is invoked...
+
+
+
+
+    [x] IsChecked doesn't work !!!
+        [x] King_loc set correctly?

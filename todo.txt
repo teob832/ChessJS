@@ -1,0 +1,222 @@
+NextUp:
+********************************************************
+[x] Create Chess class
+[x] How to access data member via member function?
+[x] Move doesn't work -- debug me
+
+    [x] Regarding TURN
+        [x] Prevent selection of enemy's piece:
+            [x] Also an empty piece
+            [x] Getter function to return val of [r][c]
+
+[x] King's location issues (with turn variable)
+
+[x] Modify appearance of selected piece
+    [x] Each time the pieceSelected is set, follow it up with
+        changeColor(currentLoc)
+
+    [x] Each time the pieceSelected is reset, follow it up with
+        changeColor(currentLoc)
+            r       c
+            odd     odd     white
+            odd     even    black
+            even    odd     black
+            even    even    white
+
+
+[x] Migrate legalMove from c++ project
+    [x] Implement islower() and isupper()
+    [x] Implement capture()
+
+[x] Seperate the board -- SOLVED
+
+
+
+
+[ ] Display captured pieces
+[ ] LegalMove Mod -- En passant & Castling
+
+
+Currently On:
+<-------------------------------------------------------------------
+
+[o] Have 0 index for every function
+
+
+
+
+
+<-------------------------------------------------------------------
+
+
+
+[o] Prevent move if it leaves king in check  -- exposedKing()
+
+
+    exposedKing(turn,c,r,c1,r1)
+        Create a copy of the board
+        Make the move on this pseudo-board
+
+        If this results in a check
+            return true
+
+        else
+            return false -- king is not exposed
+
+
+
+
+
+
+
+
+
+
+Implement
+<------------------checkMate-------------------------------------------------
+[ ] Implement checkMate()
+
+
+
+
+Am I checkMated:
+      A. Can I move out of the way? -- (then return false)
+            -Find an empty square to move the king that's not attackable
+            --CHECK
+
+      B. Can I jump the attacker(s)?  -- (then return false)
+            -Find the player's piece that can jump attacker
+
+      C. Can I block the attacker? -- (then return false)
+            -
+
+ A. MOVE OUT
+      For each square [c1][r1] surrounding the King's loc
+      {
+          If [c1][r1] is EMPTY
+          {
+              if king will NOT be checked at [c1][r1]  
+              {
+                  Not a CHECKMATE
+                  return false;   
+              }
+          }
+      }
+    
+
+
+ B. JUMP the ATTACKER
+      Hard to find WHO exactly is attacking  (Can have multiple attackers) 
+      For each enemy's piece P
+      {
+          if P is attacking/checking the King
+          {
+              For each of my own pieces M
+              {
+                  If there's an attacker that can be jumped
+                  if M can jump P
+                      return false;
+              }
+    
+          }
+      }
+
+C. BLOCK
+    How do I block?
+    -First need to find the PATH from attacker [c][r] to king_loc [c1][r1]
+    
+
+    -Idea
+        1. Get location [c][r] of the attacker A
+        2. Get the path from [c][r] to king_loc (path = array of squares)
+        3a.
+           For each of my piece p
+           {
+                if p can move to any one of path[i]
+                    return false
+           }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Functions:
+
+    PrintBoard:
+        -invoked everytime a move is made ()
+        -for each piece, refresh corresponding square
+
+    Move Function:
+        -Keeping track of clicks
+            Upon first click, "select"
+                -Set selected flag = true
+                -Save id of selected
+            Upon next click,
+                -Save its id,
+                -Invoke move(c,r,c1,r1);
+                -Set selected flag = false
+
+
+    takeAction()
+    {
+        if (selected == false)
+        {
+            currentLoc = this.id;
+            selected = true;
+        }
+        else
+        {
+             newLoc = this.id;
+             chess.move(currentLoc, newLoc);
+        }
+
+    }
+
+    isChecked()
+        For each opponent's piece p
+            if p can move to my king's location -- legalMove(c,r, king's)
+                return true -- my king is CHECKED
+
+        return false;
+
+    
+
+
+    CheckMove Pseudocode:
+
+        -if this move is LEGAL
+
+        -If the King will be safe after this move -- !exposedKing()
+
+        -then ALLOW move
+
+    TakeAction:
+
+        -Grab piece
+        -Grab location to move
+        -Check if the move is good
+        -Make move
+        
+        [ ] Check if the opponent is checked -- isChecked(!turn)
+            If so, check if the opponent is in checkMate()
+                If so -- GAMEOVER
+

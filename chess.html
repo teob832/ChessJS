@@ -1,0 +1,133 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<meta charset="UTF-8"> 
+<title>Chess</title>
+<style type="text/css">
+.chessboard {
+    width: 640px;
+    height: 640px;
+    margin: 20px;
+    border: 25px solid #333;
+}
+.black {
+    float: left;
+    width: 80px;
+    height: 80px;
+    background-color: #999;
+    font-size:50px;
+    text-align:center;
+    display: table-cell;
+    vertical-align:middle;
+}
+.white {
+    float: left;
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    font-size:50px;
+    text-align:center;
+    display: table-cell;
+    vertical-align:middle;
+}
+
+.captured
+{
+    float: left;
+    width: 100px;
+    height: 100px;
+    font-size:25px;
+    text-align:center;
+    display: table-cell;
+    vertical-align:middle;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="chessboard">
+<!-- 1st -->
+<div class="square white" id="a0">&#9820;</div>
+<div class="square black" id="b0">&#9822;</div>
+<div class="square white" id="c0">&#9821;</div>
+<div class="square black" id="d0">&#9819;</div>
+<div class="square white" id="e0">&#9818;</div>
+<div class="square black" id="f0">&#9821;</div>
+<div class="square white" id="g0">&#9822;</div>
+<div class="square black" id="h0">&#9820;</div>
+<!-- 2nd -->
+<div class="square black" id="a1">&#9823;</div>
+<div class="square white" id="b1">&#9823;</div>
+<div class="square black" id="c1">&#9823;</div>
+<div class="square white" id="d1">&#9823;</div>
+<div class="square black" id="e1">&#9823;</div>
+<div class="square white" id="f1">&#9823;</div>
+<div class="square black" id="g1">&#9823;</div>
+<div class="square white" id="h1">&#9823;</div>
+<!-- 3th -->
+<div class="square white" id="a2"></div>
+<div class="square black" id="b2"></div>
+<div class="square white" id="c2"></div>
+<div class="square black" id="d2"></div>
+<div class="square white" id="e2"></div>
+<div class="square black" id="f2"></div>
+<div class="square white" id="g2"></div>
+<div class="square black" id="h2"></div>
+<!-- 4st -->
+<div class="square black" id="a3"></div>
+<div class="square white" id="b3"></div>
+<div class="square black" id="c3"></div>
+<div class="square white" id="d3"></div>
+<div class="square black" id="e3"></div>
+<div class="square white" id="f3"></div>
+<div class="square black" id="g3"></div>
+<div class="square white" id="h3"></div>
+<!-- 5th -->
+<div class="square white" id="a4"></div>
+<div class="square black" id="b4"></div>
+<div class="square white" id="c4"></div>
+<div class="square black" id="d4"></div>
+<div class="square white" id="e4"></div>
+<div class="square black" id="f4"></div>
+<div class="square white" id="g4"></div>
+<div class="square black" id="h4"></div>
+<!-- 6th -->
+<div class="square black" id="a5"></div>
+<div class="square white" id="b5"></div>
+<div class="square black" id="c5"></div>
+<div class="square white" id="d5"></div>
+<div class="square black" id="e5"></div>
+<div class="square white" id="f5"></div>
+<div class="square black" id="g5"></div>
+<div class="square white" id="h5"></div>
+<!-- 7th -->
+<div class="square white" id="a6">&#9817;</div>
+<div class="square black" id="b6">&#9817;</div>
+<div class="square white" id="c6">&#9817;</div>
+<div class="square black" id="d6">&#9817;</div>
+<div class="square white" id="e6">&#9817;</div>
+<div class="square black" id="f6">&#9817;</div>
+<div class="square white" id="g6">&#9817;</div>
+<div class="square black" id="h6">&#9817;</div>
+<!-- 8th -->
+<div class="square black" id="a7">&#9814;</div>
+<div class="square white" id="b7">&#9816;</div>
+<div class="square black" id="c7">&#9815;</div>
+<div class="square white" id="d7">&#9813;</div>
+<div class="square black" id="e7">&#9812;</div>
+<div class="square white" id="f7">&#9815;</div>
+<div class="square black" id="g7">&#9816;</div>
+<div class="square white" id="h7">&#9814;</div>
+</div>
+
+<div class="captured" id="captured-black"></div>
+
+<p id="debugger"></p>
+
+<script src="app_chess.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
