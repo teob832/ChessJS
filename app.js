@@ -13,9 +13,6 @@ for (var i = 0; i < cells.length; ++i)
 
 
 
-
-
-
 //Take action
 //********************************
 function takeAction()

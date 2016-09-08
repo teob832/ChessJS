@@ -27,26 +27,6 @@ function Chess()
     //***********************************
     this.printBoard = function()
     {
-        var cap = document.getElementsByClassName("captured");
-        var capturedBlack = "";
-        var capturedWhite = "";
-
-        /*
-        //Display captured pieces
-        for (var i = 0; i < this.captured.length; ++i)
-        {
-            if (islower(this.captured[i]))
-                capturedBlack = capturedBlack + " " + getPieceAscii(this.captured[i]);
-            else
-                capturedWhite = capturedWhite + " " + getPieceAscii(this.captured[i]);
-
-        }
-        cap[0].innerHTML = capturedWhite;
-        cap[1].innerHTML = capturedBlack;
-        */
-        
-
-
         //Display pieces on board
         for (var i = 0; i < 8; ++i)
         {
